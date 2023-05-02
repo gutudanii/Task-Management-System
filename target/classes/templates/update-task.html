@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Edit Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="mb-3">Edit Task</h3>
+            <form th:action="@{'/tasks/' + ${task.id}} + '/edit'" th:object="${task}" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{taskTitle}" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" th:field="*{taskDescription}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" class="form-control" id="start_date" th:field="*{startDate}" required>
+                </div>
+                <div class="form-group">
+                    <label for="end_Date">End Date</label>
+                    <input type="date" class="form-control" id="end_Date" th:field="*{endDate}" required>
+                </div>
+<!--                <div class="form-check">-->
+<!--                    <input type="checkbox" class="form-check-input" id="completed" name="completed" th:checked="${task.completed}">-->
+<!--                    <label class="form-check-label" for="completed">Completed</label>-->
+<!--                </div>-->
+                <button type="submit" class="btn btn-primary mt-3">Update Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

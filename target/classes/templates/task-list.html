@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
+
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Task List</h1>
+    <a style="margin-left: 1000px; background-color: brown; border-radius:5px; padding:5px 15px; color: white;" th:href="@{/tasks/logout}">Logout</a>
+    <hr>
+    <div class="row mb-3">
+        <div class="col-md-6">
+                <div class="form-group">
+                    <label for="status">Filter by status:</label>
+                    <a style="background-color: silver; border-radius:8px; padding:5px 20px; color: blue;" id="status" th:href="@{/tasks}">All</a>
+                    <a style="border-radius:8px; padding: 5px; color: darkgreen;" id="status" th:href="@{/tasks/get/allCompleted}">Completed</a>
+                    <a style="border-radius:8px; padding: 5px; color: darkred;" id="status"   th:href="@{/tasks/get/inCompleted}">Incomplete</a>
+                </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="mb-3">Task List</h3>
+            <a style="margin-left: 0px;" href="/tasks/new" class="btn btn-success">New Task</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scodfspe="col">Mark</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Starts</th>
+                    <th scope="col">Ends</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="task, status : ${tasks}">
+                    <td>
+                        <input type="checkbox" th:id="'checkBox-' + ${task.id}" />
+                         </td>
+                    <td th:text="${status.count}"></td>
+                    <td th:text="${task.taskTitle}"></td>
+                    <td th:text="${task.taskDescription}"></td>
+                    <td th:text="${task.startDate}"></td>
+                    <td th:text="${task.endDate}"></td>
+                    <td>
+                        <div class="form-check">
+                            <div  th:if="${task.isTaskIsCompleted}"><a th:href="@{'/tasks/' + ${task.id} + '/isNotCompleted'}" class="btn btn-success btn-sm">Completed</a></div>
+                            <div  th:unless="${task.isTaskIsCompleted}"><a th:href="@{'/tasks/' + ${task.id} + '/isCompleted'}" class="btn btn-warning btn-sm">In Complete</a></div>
+                            <!--                        <p th:text="${task.isTaskIsCompleted ? 'Completed' : 'In Complete'}"></p>-->
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display:none;" th:id="'div1-' + ${task.id}" class="btn-group">
+                            <a th:href="@{'/tasks' + '/update/' + ${task.id}}" class="btn btn-primary btn-sm">Edit</a>
+                            <a th:href="@{'/tasks' + '/delete/' + ${task.id}}" class="btn btn-danger btn-sm">Delete</a>
+<!--                            <div th:unless="${task.isTaskIsCompleted}"><a th:href="@{'/tasks/' + ${task.id} + '/isCompleted'}" class="btn btn-success btn-sm">Done</a></div>-->
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+<!--            <a th:href="@{/tasks/get/allCompleted}">Completed</a>-->
+        </div>
+    </div>
+</div>
+<!--<script th:src="@{/js/jquery.min.js}"></script>-->
+<!--<script th:src="@{/js/popper.min.js}"></script>-->
+<!--<script th:src="@{/js/bootstrap.min.js}"></script>-->
+<!--<script th:src="@{/js/custom.js}"></script>-->
+<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/custom.js}"></script>
+<script th:inline="javascript">
+$(document).ready(function() {
+  $('[id^=checkBox-]').change(function() {
+    var task_id = $(this).attr('id').split('-')[1];
+    var div_id = 'div1-' + task_id;
+    if ($(this).is(':checked')) {
+      $('#' + div_id).show();
+    } else {
+      $('#' + div_id).hide();
+    }
+  });
+});                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+</script>
+</body>
+</html>
