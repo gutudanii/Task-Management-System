@@ -15,7 +15,7 @@ git clone https://github.com/gutudanii/Task-Management-System.git
 2. Navigate to the project directory:
 
 ```bash
-cd task-management-app
+cd task-management-System
 ```
 
 3. Open the `application.properties` file located in `src/main/resources` and configure the database connection settings. Replace `<username>` and `<password>` with your own MySQL database username and password, also don't forget to create database with "task_management":
