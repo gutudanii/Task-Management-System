@@ -36,8 +36,10 @@ mvn clean package
 5. Run the application:
 
 ```bash
-java -jar target/task-management-app.jar
+java -jar target/task-management-System.jar
 ```
+
+or
 
 ```bash
 mvn spring-boot:run
@@ -88,15 +90,34 @@ Here are some screenshots of the Task Management application:
 
 ![Dashboard](/screenshot/dash.png)
 
-![Task List](/screenshots/task-list.png)
+![new Task](/screenshot/newCreate.png)
 
-![Edit Task](/screenshots/edit-task.png)
+![new Task](/screenshot/newCreate2.png)
 
-![Sign Up](/screenshots/sign-up.png)
+![new Task](/screenshot/newCreate3.png)
 
-![Login](/screenshots/login.png)
+![Dashboard](/screenshot/dashFill.png)
 
-![Add Task](/screenshots/add-task.png)
+![Dashboard](/screenshot/dashFill1.png)
+
+![Dashboard](/screenshot/dashFill2.png)
+
+![Dashboard](/screenshot/dashFill3.png)
+
+![Dashboard](/screenshot/dashFill4.png)
+
+![Dashboard](/screenshot/dashFill5.png)
+
+![Edit Task](/screenshot/edit.png)
+
+![Login Task](/screenshot/edit.png)
+
+![Sign Up](/screenshot/logError.png)
+
+![Login](/screenshot/logout.png)
+
+![sign](/screenshot/sign.png)
+
 
 ## Technologies Used
 
