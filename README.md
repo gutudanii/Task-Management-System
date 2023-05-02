@@ -86,7 +86,7 @@ The application uses Spring Security to provide user authentication and authoriz
 
 Here are some screenshots of the Task Management application:
 
-![Dashboard](/screenshots/dashboard.png)
+![Dashboard](/screenshot/dash.png)
 
 ![Task List](/screenshots/task-list.png)
 
