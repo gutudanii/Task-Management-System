@@ -91,7 +91,6 @@ Here are some screenshots of the Task Management application:
 ![Task List](/screenshots/task-list.png)
 
 ![Edit Task](/screenshots/edit-task.png)
-## Screenshots (continued)
 
 ![Sign Up](/screenshots/sign-up.png)
 
