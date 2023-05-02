@@ -65,18 +65,18 @@ To mark a task as complete or incomplete, click the checkbox next to the task in
 
 To delete a task from your task list, click the "Delete" button next to the task. The task will be permanently removed from your task list.
 
-## Database Configuration
+## Database Configuration (Example)
 
 The application uses a MySQL database to store user and task data. To configure the database connection settings, open the `application.properties` file located in `src/main/resources` and replace `<username>` and `<password>` with your own MySQL database username and password:
 
 ```
-spring.datasource.url=jdbc:mysql://localhost:3306/taskdb
+spring.datasource.url=jdbc:mysql://localhost:3306/task_management
 spring.datasource.username=<username>
 spring.datasource.password=<password>
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-Make sure that you have created a new database schema called `taskdb` in your MySQL server.
+Make sure that you have created a new database schema called `task_management` in your MySQL server.
 
 ## Security
 
